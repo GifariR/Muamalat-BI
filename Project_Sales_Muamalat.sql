@@ -14,7 +14,7 @@ SELECT DISTINCT
     customers.CustomerZip,
     product_category.CategoryName,
     dataset_task_5.ProdName,
-    FIRST_VALUE(orders.date) OVER (ORDER BY orders.date) as [first of date],
+    CONVERT(date, orders.Date) AS Date,
     sum(orders.quantity) as [sum of quantity],
     sum(dataset_task_5.price) as [sum of price]
 
@@ -41,4 +41,4 @@ GROUP BY
     customers.CustomerZip,
     product_category.CategoryName,
     dataset_task_5.ProdName,
-    orders.date ;
+    orders.Date ;
